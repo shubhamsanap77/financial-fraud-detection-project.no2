@@ -60,3 +60,31 @@ The `fraud-detection-base:latest` image should be visible.
 - Base Image: `python:3.11-slim`
 - Working Directory: `/app`
 - Docker Engine: Docker Desktop with WSL 2
+
+
+Day 5 – PaySim Kafka Producer
+
+The Kafka producer reads cleaned PaySim transaction events from a JSON file and supports dry-run validation or publishing to the Kafka topic "fraud-transactions".
+
+Prerequisites
+
+- Python 3
+- Apache Kafka broker running for live streaming
+
+Install Dependencies
+
+python -m pip install -r requirements.txt
+
+Dry-Run Test
+
+python producer/kafka_producer.py --input data/processed/paysim_stream_ready.json --dry-run --limit 5
+
+Publish Transactions to Kafka
+
+Ensure Kafka is running and the "fraud-transactions" topic exists, then run:
+
+python producer/kafka_producer.py --input data/processed/paysim_stream_ready.json --limit 5
+
+Default Kafka broker: "localhost:9092"
+
+Default topic: "fraud-transactions"
