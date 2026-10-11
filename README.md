@@ -105,3 +105,26 @@ Test Scope and Limitations
 - The integration test used the Kafka setup from Shubham's Day 2 project ZIP.
 - Cassandra integration has not yet been verified.
 - End-to-end fraud detection has not yet been verified.
+
+Day 7 – Integration Testing and Verification
+
+Tests Performed
+
+- Verified that the Kafka Docker container was running and healthy.
+- Verified that the Cassandra Docker container was running.
+- Confirmed that the "fraud-transactions" Kafka topic exists.
+- Published 5 PaySim transaction events using the Python Kafka Producer.
+- Consumed 5 transaction messages from Kafka successfully.
+- Verified that the Cassandra keyspace and "transactions" table exist.
+- Ran Cassandra integration tests successfully: 2 tests passed.
+
+Test Results
+
+Component| Result
+Kafka topic verification| Passed
+Kafka producer test| Passed
+Kafka message consumption| Passed – 5 messages
+Cassandra integration tests| Passed – 2 tests
+GitHub push| Successful
+
+Note: Kafka message delivery and Cassandra integration tests were verified separately. End-to-end Kafka-to-Cassandra processing has not yet been verified.
