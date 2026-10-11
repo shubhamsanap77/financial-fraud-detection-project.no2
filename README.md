@@ -88,3 +88,20 @@ python producer/kafka_producer.py --input data/processed/paysim_stream_ready.jso
 Default Kafka broker: "localhost:9092"
 
 Default topic: "fraud-transactions"
+
+Day 7 – Integration Testing Results
+
+Kafka Integration Test
+
+- Kafka broker started successfully using Docker Compose.
+- Kafka container status verified as healthy.
+- Created and verified the "fraud-transactions" topic.
+- Published 5 PaySim transaction events using "producer/kafka_producer.py".
+- Consumed 5 messages from Kafka using the Kafka console consumer.
+- Result: Producer-to-Kafka-to-consumer flow passed for 5 messages.
+
+Test Scope and Limitations
+
+- The integration test used the Kafka setup from Shubham's Day 2 project ZIP.
+- Cassandra integration has not yet been verified.
+- End-to-end fraud detection has not yet been verified.
