@@ -128,3 +128,18 @@ Cassandra integration tests| Passed – 2 tests
 GitHub push| Successful
 
 Note: Kafka message delivery and Cassandra integration tests were verified separately. End-to-end Kafka-to-Cassandra processing has not yet been verified.
+
+
+Week 2 – Day 2: Feature Engineering
+
+- Loaded the processed PaySim transaction dataset containing 1,000 records.
+- Converted transaction amount and balance columns to numeric data types.
+- Created nine additional features related to balance changes, balance errors, transaction amount, and transaction time.
+- Checked missing values across the dataset; the validation output reported zero missing values.
+- Checked duplicate transaction IDs; zero duplicates were found.
+- Saved the feature-engineered dataset to "data/processed/paysim_feature_engineered.csv".
+- Verified the output dataset shape: 1,000 rows and 25 columns.
+- Fraud distribution: 13 fraud transactions and 987 non-fraud transactions.
+- Identified class imbalance for consideration during model training.
+
+Output: "data/processed/paysim_feature_engineered.csv"
