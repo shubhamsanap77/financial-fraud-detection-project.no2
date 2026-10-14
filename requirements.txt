@@ -1,1 +1,6 @@
 cassandra-driver==3.30.1
+kafka-python
+numpy==2.5.4
+pandas==3.0.6
+scikit-learn==1.9.1
+joblib==1.6.0
