@@ -7,15 +7,15 @@ Real-Time Financial Fraud Detection Pipeline using Python, Kafka, Cassandra, and
 
 ## Project Overview
 
-This project focuses on building a real-time financial fraud detection pipeline for identifying potentially fraudulent transactions. The pipeline streams transactional events through Apache Kafka, persists records into Apache Cassandra, and processes/analyzes transaction distributions using the PaySim benchmark dataset.
+This project focuses on building a real-time financial fraud detection pipeline for identifying potentially fraudulent transactions. The pipeline streams transactional events through Apache Kafka, persists records into Apache Cassandra, and processes/analyzes transaction distributions using the PaySim benchmark dataset with machine learning models.
 
 ## Technologies
 
-- **Python** (Data preprocessing, EDA analysis, Kafka clients, Cassandra driver)
+- **Python** (Data preprocessing, feature engineering, ML models, Kafka clients, Cassandra driver)
 - **Apache Kafka** (Real-time message streaming)
 - **Apache Cassandra** (NoSQL high-throughput database storage)
 - **Docker & Docker Compose** (Containerized infrastructure)
-- **Machine Learning & Analytics** (Feature engineering, imbalance handling, EDA)
+- **Scikit-Learn & Machine Learning** (Logistic Regression, class imbalance weighting, metrics evaluation)
 - **GitHub** (Collaborative branch-based workflow)
 
 ## Team
@@ -28,36 +28,58 @@ This project focuses on building a real-time financial fraud detection pipeline 
 
 ---
 
-## Week 1 Day 4 — PaySim Dataset Preparation & Transaction-Data Analysis
+## Week 2 Day 4 — Logistic Regression Model Training & Evaluation
 
 **Assigned to:** Rajarsh  
 **Branch:** `rajarsh`  
-**Deliverable:** Clean / Usable PaySim Data & Transaction Analysis  
+**Deliverable:** Trained Model, Performance Evaluation & Saved Artifacts  
 
 ### Objectives & Work Completed
-1. **PaySim Dataset Ingestion & Cleaning**:
-   - Built an automated data cleaning and validation pipeline ([`src/data_preprocessing.py`](src/data_preprocessing.py)).
-   - Enforced schema constraints on all 11 PaySim columns (`step`, `type`, `amount`, `nameOrig`, `oldbalanceOrg`, `newbalanceOrig`, `nameDest`, `oldbalanceDest`, `newbalanceDest`, `isFraud`, `isFlaggedFraud`).
-   - Removed corrupted/negative values and duplicate transaction records with 100% data retention.
+1. **Model Architecture & Training Pipeline**:
+   - Built an end-to-end training pipeline ([`src/train_logistic_regression.py`](src/train_logistic_regression.py)) utilizing `StandardScaler` and `LogisticRegression(C=1.0, solver='lbfgs', max_iter=1000)`.
+   - Prevented data leakage by fitting scaling parameters strictly on training features.
+   - Addressed extreme fraud class imbalance using `class_weight='balanced'` ($w_1 = 40.0$, $w_0 = 0.506$).
 
-2. **Domain-Specific Feature Engineering**:
-   - **Sender Balance Discrepancy**: $\text{errorBalanceOrig} = (\text{oldbalanceOrg} - \text{amount}) - \text{newbalanceOrig}$
-   - **Recipient Balance Discrepancy**: $\text{errorBalanceDest} = (\text{oldbalanceDest} + \text{amount}) - \text{newbalanceDest}$
-   - **Temporal Mapping**: Converted hourly simulation `step` (1–744) into ISO-8601 timestamps.
+2. **Model Performance Evaluation**:
+   - Evaluated predictions on the holdout test set (`X_test.csv`, `y_test.csv`):
+     - **Fraud Precision**: `0.6000` (60.0%)
+     - **Fraud Recall**: `1.0000` (100.0% — **zero missed fraud events**)
+     - **Fraud F1-Score**: `0.7500` (75.0%)
+     - **Overall Accuracy**: `0.9900` (99.0%)
+     - **ROC-AUC Score**: `1.0000`
+     - **Average Precision (PR-AUC)**: `1.0000`
+   - **Confusion Matrix**:
+     - True Negatives (TN): **195**
+     - False Positives (FP): **2**
+     - False Negatives (FN): **0** (no missed frauds)
+     - True Positives (TP): **3**
 
-3. **Pipeline & Schema Alignment (Kafka + Cassandra)**:
-   - Generated standard UUID `transaction_id` matching Cassandra's primary key (`transaction_id text PRIMARY KEY`) and Kafka message key.
-   - Mapped fields: `nameOrig` $\rightarrow$ `user_id`, `type` $\rightarrow$ `payment_type`, added `currency = 'USD'`.
-   - Exported clean, stream-ready dataset payloads in both CSV and JSON formats.
+3. **Saved Model Artifacts & Deliverables**:
+   - Trained model pipeline serialized to [`models/logistic_regression_model.joblib`](models/logistic_regression_model.joblib).
+   - Evaluation metrics exported to [`results/evaluation_results.json`](results/evaluation_results.json).
+   - Text classification report saved to [`results/classification_report.txt`](results/classification_report.txt).
+   - Generated visual diagnostic plots in `docs/figures/`:
+     - `docs/figures/confusion_matrix.png`
+     - `docs/figures/roc_curve.png`
+     - `docs/figures/precision_recall_curve.png`
+     - `docs/figures/logistic_regression_coefficients.png`
+   - Complete documentation written in [`docs/week2_day4.md`](docs/week2_day4.md).
 
-4. **Exploratory Data Analysis (EDA) & Fraud Behavior Discovery**:
-   - **Fraud Exclusivity**: 100% of fraud incidents are isolated strictly to **`TRANSFER`** and **`CASH_OUT`** transactions (`PAYMENT`, `CASH_IN`, and `DEBIT` contain 0 fraud).
-   - **Account Draining**: In **100%** of fraud events, the originating account balance was emptied completely (`newbalanceOrig == 0.0`).
-   - **Static Heuristic Failure**: Evaluated `isFlaggedFraud` threshold rule; it missed >85% of real fraud, justifying the need for this real-time ML streaming pipeline.
-   - Exported summary report ([`docs/transaction_analysis_report.md`](docs/transaction_analysis_report.md)) and high-resolution figures to `docs/figures/`.
+4. **Automated Unit Tests**:
+   - Added automated tests in [`tests/test_train_logistic_regression.py`](tests/test_train_logistic_regression.py).
+   - All **19/19** tests across the entire repository pass (**OK**).
 
-5. **Automated Testing Suite**:
-   - Created 10 automated unit tests covering data validation, feature engineering, and analytics. Ran 10/10 tests successfully (**OK**).
+---
+
+## Week 1 Day 4 — PaySim Dataset Preparation & Transaction-Data Analysis
+
+**Assigned to:** Rajarsh  
+**Deliverable:** Clean / Usable PaySim Data & Transaction Analysis  
+
+1. **PaySim Cleaning & Validation**: Automated validation in [`src/data_preprocessing.py`](src/data_preprocessing.py) ensuring 100% data retention.
+2. **Domain-Specific Feature Engineering**: Calculated balance discrepancies (`errorBalanceOrig`, `errorBalanceDest`) and ISO-8601 timestamps.
+3. **Kafka & Cassandra Alignment**: Mapped schema to Kafka topic `fraud-transactions` and Cassandra table `fraud_detection.transactions`.
+4. **Key EDA Discovery**: 100% of fraud transactions in PaySim occur exclusively in `TRANSFER` and `CASH_OUT` and drain 100% of the origin balance. Documentation in [`docs/week1_day4.md`](docs/week1_day4.md).
 
 ---
 
@@ -73,22 +95,44 @@ financial-fraud-detection-project.no2/
 │   │   └── paysim_sample.csv              # Baseline raw PaySim dataset (5,000 txns)
 │   └── processed/
 │       ├── paysim_cleaned.csv             # Cleaned dataset with engineered features
-│       └── paysim_stream_ready.json       # Stream-ready JSON events for Kafka
+│       ├── paysim_stream_ready.json       # Stream-ready JSON events for Kafka
+│       └── week2_day3/                    # ML-ready train/test splits (Day 3)
+│           ├── X_train.csv
+│           ├── X_test.csv
+│           ├── y_train.csv
+│           ├── y_test.csv
+│           └── split_summary.json
+├── models/
+│   ├── logistic_regression_model.joblib   # Trained and serialized ML model
+│   └── evaluation_results.json            # Model evaluation metrics copy
+├── results/
+│   ├── evaluation_results.json            # Structured evaluation metrics
+│   └── classification_report.txt          # Plain-text classification report
 ├── docs/
-│   ├── week1_day4.md                      # Official Day 4 verification & report
-│   ├── transaction_analysis_report.md     # Detailed statistical analysis report
-│   └── figures/                           # Generated EDA visualization charts
+│   ├── week2_day4.md                      # Week 2 Day 4 documentation & evaluation
+│   ├── week2_day3.md                      # Week 2 Day 3 ML dataset prep documentation
+│   ├── week1_day4.md                      # Week 1 Day 4 PaySim prep & EDA documentation
+│   ├── transaction_analysis_report.md     # Statistical transaction report
+│   └── figures/                           # Generated visualization charts
+│       ├── confusion_matrix.png
+│       ├── roc_curve.png
+│       ├── precision_recall_curve.png
+│       ├── logistic_regression_coefficients.png
 │       ├── amount_distribution_by_class.png
 │       ├── fraud_by_transaction_type.png
 │       └── transaction_type_distribution.png
 ├── src/
 │   ├── __init__.py
+│   ├── train_logistic_regression.py       # Model training, evaluation & metrics export
+│   ├── prepare_ml_dataset.py              # ML train/test splitting and encoding
 │   ├── data_preprocessing.py              # Cleaning, feature engineering & export
 │   ├── transaction_analysis.py            # EDA, statistics & visualization engine
 │   ├── generate_sample_data.py            # PaySim synthetic distribution generator
 │   └── stream_paysim_producer.py          # Kafka streaming producer adapter
 └── tests/
     ├── __init__.py
+    ├── test_train_logistic_regression.py  # Unit tests for Logistic Regression
+    ├── test_prepare_ml_dataset.py         # Unit tests for ML dataset preparation
     ├── test_data_preprocessing.py         # Unit tests for preprocessing
     └── test_transaction_analysis.py       # Unit tests for analysis & metrics
 ```
@@ -97,35 +141,31 @@ financial-fraud-detection-project.no2/
 
 ## How to Execute
 
-### 1. Clone and Checkout the Branch
-```bash
-git clone https://github.com/shubhamsanap77/financial-fraud-detection-project.no2.git
-cd financial-fraud-detection-project.no2
-git checkout rajarsh
-```
-
-### 2. Install Dependencies
+### 1. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. (Optional) Generate a New PaySim Sample Dataset
+### 2. Train and Evaluate Logistic Regression Model (Week 2 Day 4)
+Trains the model on `data/processed/week2_day3/`, generates confusion matrix and curves in `docs/figures/`, and saves artifacts in `models/` and `results/`:
 ```bash
-python src/generate_sample_data.py --rows 5000 --output data/raw/paysim_sample.csv
+python src/train_logistic_regression.py
 ```
 
-### 4. Run the Data Preprocessing Pipeline
-Cleans the raw data, engineers balance discrepancy features, aligns fields with the Kafka/Cassandra schema, and exports both CSV and stream-ready JSON files:
+### 3. Run Automated Unit Tests
+```bash
+python -m unittest discover tests -v
+```
+
+### 4. (Optional) Run Data Preprocessing Pipeline (Week 1 Day 4)
 ```bash
 python src/data_preprocessing.py \
   --input data/raw/paysim_sample.csv \
   --output-csv data/processed/paysim_cleaned.csv \
-  --output-json data/processed/paysim_stream_ready.json \
-  --stream-limit 1000
+  --output-json data/processed/paysim_stream_ready.json
 ```
 
-### 5. Run Transaction Data Analysis & Generate Visualizations
-Computes class distributions, fraud type patterns, and exports charts to `docs/figures/` and report to `docs/transaction_analysis_report.md`:
+### 5. (Optional) Run Transaction EDA Analysis
 ```bash
 python src/transaction_analysis.py \
   --input data/processed/paysim_cleaned.csv \
@@ -133,25 +173,15 @@ python src/transaction_analysis.py \
   --figures-dir docs/figures
 ```
 
-### 6. Test Kafka Streaming Producer (Live or Dry-Run)
-Stream clean PaySim events into the `fraud-transactions` Kafka topic:
+### 6. (Optional) Test Kafka Streaming Producer (Live or Dry-Run)
 ```bash
-# Dry-run validation (no running Kafka broker required):
 python src/stream_paysim_producer.py --dry-run --limit 5
-
-# Live Kafka streaming (when Docker Kafka is running on localhost:9092):
-python src/stream_paysim_producer.py --servers localhost:9092 --topic fraud-transactions --limit 50
-```
-
-### 7. Run Automated Unit Tests
-```bash
-python -m unittest discover tests -v
 ```
 
 ---
 
 ## Verification & Status
 
-- **Automated Tests**: `Ran 10 tests in 1.910s — OK` (10/10 passed)
-- **Data Quality Audit**: 5,000 / 5,000 valid records (100% clean retention rate)
-- **Branch Status**: Pushed and up-to-date with `origin/rajarsh`
+- **Automated Tests**: `Ran 19 tests in 2.456s — OK` (19/19 passed)
+- **Model Evaluation**: Precision: 0.6000, Recall: 1.0000, F1: 0.7500, ROC-AUC: 1.0000
+- **Artifacts Saved**: `models/logistic_regression_model.joblib`, `results/evaluation_results.json`, `results/classification_report.txt`

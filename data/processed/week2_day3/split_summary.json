@@ -1,0 +1,82 @@
+{
+  "source_file": "data/processed/paysim_feature_engineered.csv",
+  "target_column": "is_fraud",
+  "total_rows": 1000,
+  "original_class_distribution": {
+    "0": 987,
+    "1": 13
+  },
+  "excluded_columns": [
+    "transaction_id",
+    "user_id",
+    "name_dest",
+    "timestamp",
+    "currency",
+    "is_synthetic_test_event",
+    "is_flagged_fraud",
+    "is_fraud"
+  ],
+  "constant_features_removed": [
+    "transaction_month"
+  ],
+  "numeric_features_used": [
+    "amount",
+    "old_balance_orig",
+    "new_balance_orig",
+    "old_balance_dest",
+    "new_balance_dest",
+    "error_balance_orig",
+    "error_balance_dest",
+    "orig_balance_change",
+    "dest_balance_change",
+    "orig_balance_error",
+    "dest_balance_error",
+    "amount_to_orig_balance_ratio",
+    "log_amount",
+    "transaction_hour",
+    "transaction_day_of_week"
+  ],
+  "categorical_features_used": [
+    "payment_type"
+  ],
+  "encoded_feature_names": [
+    "numeric__amount",
+    "numeric__old_balance_orig",
+    "numeric__new_balance_orig",
+    "numeric__old_balance_dest",
+    "numeric__new_balance_dest",
+    "numeric__error_balance_orig",
+    "numeric__error_balance_dest",
+    "numeric__orig_balance_change",
+    "numeric__dest_balance_change",
+    "numeric__orig_balance_error",
+    "numeric__dest_balance_error",
+    "numeric__amount_to_orig_balance_ratio",
+    "numeric__log_amount",
+    "numeric__transaction_hour",
+    "numeric__transaction_day_of_week",
+    "categorical__payment_type_CASH_IN",
+    "categorical__payment_type_CASH_OUT",
+    "categorical__payment_type_DEBIT",
+    "categorical__payment_type_PAYMENT",
+    "categorical__payment_type_TRANSFER"
+  ],
+  "random_state": 42,
+  "test_size": 0.2,
+  "train_rows": 800,
+  "test_rows": 200,
+  "train_class_distribution": {
+    "0": 790,
+    "1": 10
+  },
+  "test_class_distribution": {
+    "0": 197,
+    "1": 3
+  },
+  "balanced_class_weights_from_training_data": {
+    "0": 0.5063291139240507,
+    "1": 40.0
+  },
+  "imbalance_strategy": "No resampling. Use the saved class weights when training a compatible classifier. The test set remains unchanged.",
+  "evaluation_warning": "Only 13 fraud examples exist in the source dataset. Test metrics will be unstable and must not be treated as production evidence."
+}

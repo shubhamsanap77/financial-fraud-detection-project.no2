@@ -43,3 +43,4 @@ data/raw/*.zip
 data/raw/*.tar.gz
 data/raw/*.parquet
 *.log
+financial-fraud-detection-project.no2-*/
