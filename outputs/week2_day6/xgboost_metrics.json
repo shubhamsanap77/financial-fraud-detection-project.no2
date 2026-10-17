@@ -1,0 +1,51 @@
+{
+    "model": "XGBoost",
+    "dataset_rows": 1000,
+    "training_rows": 800,
+    "testing_rows": 200,
+    "fraud_cases_total": 13,
+    "fraud_cases_test": 3,
+    "accuracy": 1.0,
+    "fraud_precision": 1.0,
+    "fraud_recall": 1.0,
+    "fraud_f1": 1.0,
+    "roc_auc": 1.0,
+    "average_precision": 1.0,
+    "confusion_matrix": [
+        [
+            197,
+            0
+        ],
+        [
+            0,
+            3
+        ]
+    ],
+    "classification_report": {
+        "0": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 197.0
+        },
+        "1": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 3.0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 200.0
+        },
+        "weighted avg": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 200.0
+        }
+    }
+}

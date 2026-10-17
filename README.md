@@ -143,3 +143,50 @@ Week 2 – Day 2: Feature Engineering
 - Identified class imbalance for consideration during model training.
 
 Output: "data/processed/paysim_feature_engineered.csv"
+
+Week 2 – Day 6: XGBoost Fraud Detection Model
+
+Objective
+
+Train and evaluate an XGBoost classifier to detect fraudulent financial transactions using the feature-engineered PaySim dataset.
+
+Implementation
+
+- Used the feature-engineered dataset: "data/processed/paysim_feature_engineered.csv".
+- Applied stratified train-test splitting with an 80:20 ratio.
+- Excluded identifiers and target-leakage-related columns from model features.
+- Used class weighting through "scale_pos_weight" to address class imbalance.
+- Evaluated the model using fraud precision, recall, F1-score, ROC-AUC, average precision, and a confusion matrix.
+- Generated feature importance rankings.
+
+Evaluation Results
+
+Metric| Result
+Fraud Recall| 1.0000
+Fraud F1-score| 1.0000
+ROC-AUC| 1.0000
+Average Precision| 1.0000
+
+Confusion Matrix
+
+[[197, 0],
+ [0, 3]]
+
+The test set contained 197 non-fraud transactions and 3 fraud transactions. All 200 test records were classified correctly in this run.
+
+Limitation: The dataset contains only 13 fraud transactions overall. These results are preliminary and should not be interpreted as evidence of guaranteed real-world performance. Further validation on a larger, representative dataset is required.
+
+Generated Outputs
+
+- "outputs/week2_day6/xgboost_metrics.json"
+- "outputs/week2_day6/xgboost_feature_importance.csv"
+
+Training Script
+
+- "src/train_xgboost.py"
+
+Dependencies
+
+- "pandas"
+- "scikit-learn"
+- "xgboost"
