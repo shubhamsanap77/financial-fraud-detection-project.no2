@@ -190,3 +190,15 @@ Dependencies
 - "pandas"
 - "scikit-learn"
 - "xgboost"
+
+Week 2 - Day 6: XGBoost Model and Model Comparison
+Trained an XGBoost fraud detection model.
+Compared Logistic Regression, Random Forest, and XGBoost.
+Evaluated accuracy, fraud precision, fraud recall, fraud F1-score, ROC-AUC, and average precision.
+Saved XGBoost metrics, feature importance, and model comparison outputs under outputs/week2_day6/.
+Preliminary Results
+Model	Accuracy	Fraud Precision	Fraud Recall	Fraud F1
+Logistic Regression	0.99	0.60	1.00	0.75
+Random Forest	1.00	1.00	1.00	1.00
+XGBoost	1.00	1.00	1.00	1.00
+Note: These results are preliminary because the dataset contains only 13 fraud cases, with 3 fraud cases in the test set. Further validation on a larger dataset is required.
