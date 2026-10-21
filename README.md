@@ -84,3 +84,35 @@ Install dependencies and execute from the repository root:
 **Limitation:** The current training dataset contains only 10 fraud cases,
 and the test set contains only 3. The promising evaluation results are
 preliminary and are not evidence of production readiness.
+
+## Week 3 Day 3 — Data Validation and Prediction Preparation
+
+Implemented input validation and prediction preparation using the existing
+training-fitted preprocessing pipeline and Random Forest model.
+
+- **Script:** `src/validate_prediction_data.py`
+- **Validation:** Missing/invalid amounts, malformed numeric values, negative
+  balances, transaction-time ranges, payment types, and duplicate transaction IDs
+- **Missing data:** Eligible missing numeric features are imputed by the saved
+  preprocessor; invalid required values are rejected with reasons
+- **Prediction preparation:** 16 input features transformed into 20 model features
+- **Outputs:** Prepared feature CSV, fraud predictions, rejected records, and JSON audit report
+- **Tests:** Nine targeted validation tests passed; all 20 project tests passed
+
+### Run
+
+`python -m pip install -r requirements.txt`
+
+`python src/validate_prediction_data.py`
+
+### Outputs
+
+Generated in `data/processed/week3_day3/`:
+- `prediction_ready_features.csv`
+- `predictions.csv`
+- `rejected_transactions.csv`
+- `data_quality_report.json`
+
+**Limitation:** The sample contains only 13 known fraud examples. The 13 positive
+predictions in this run are model outputs and must not be presented as measured
+accuracy or independent evidence of real-world performance.
