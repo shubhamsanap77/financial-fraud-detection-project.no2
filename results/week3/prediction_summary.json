@@ -1,0 +1,31 @@
+{
+  "execution_metadata": {
+    "input_file": "C:\\Users\\TUFGAM~1\\AppData\\Local\\Temp\\tmpz16vzv9_\\sample_transactions.csv",
+    "model_file": "models\\logistic_regression_model.joblib",
+    "decision_threshold": 0.5,
+    "total_transactions_scored": 4
+  },
+  "prediction_counts": {
+    "legitimate_transactions": 3,
+    "legitimate_percentage": 75.0,
+    "fraudulent_transactions": 1,
+    "fraud_percentage": 25.0
+  },
+  "probability_statistics": {
+    "mean_fraud_probability": 0.3167,
+    "median_fraud_probability": 0.1632,
+    "max_fraud_probability": 0.9403,
+    "min_fraud_probability": 0.0001
+  },
+  "risk_level_breakdown": {
+    "CRITICAL": 1,
+    "HIGH": 0,
+    "MEDIUM": 1,
+    "LOW": 2
+  },
+  "fraud_alerts_generated": 1,
+  "output_files": {
+    "prediction_results_csv": "C:\\Users\\TUFGAM~1\\AppData\\Local\\Temp\\tmpz16vzv9_\\outputs\\prediction_results.csv",
+    "fraud_alerts_json": "C:\\Users\\TUFGAM~1\\AppData\\Local\\Temp\\tmpz16vzv9_\\outputs\\fraud_alerts.json"
+  }
+}

@@ -1,0 +1,20 @@
+=== Logistic Regression Performance Report ===
+
+               precision    recall  f1-score   support
+
+Non-Fraud (0)     1.0000    0.9898    0.9949       197
+    Fraud (1)     0.6000    1.0000    0.7500         3
+
+     accuracy                         0.9900       200
+    macro avg     0.8000    0.9949    0.8724       200
+ weighted avg     0.9940    0.9900    0.9912       200
+
+
+Confusion Matrix:
+  True Negatives (TN) : 195
+  False Positives (FP): 2
+  False Negatives (FN): 0
+  True Positives (TP) : 3
+
+ROC AUC Score: 1.0000
+PR AUC Score : 1.0000

@@ -1,0 +1,13 @@
+[
+  {
+    "transaction_id": "tx-002",
+    "payment_type": "TRANSFER",
+    "amount": 500000.0,
+    "user_id": "N/A",
+    "fraud_probability": 0.9403,
+    "risk_level": "CRITICAL",
+    "confidence_score_pct": 88.06,
+    "alert_timestamp": "N/A",
+    "reason": "Fraud probability (94.03%) exceeds threshold (50.00%) with CRITICAL risk level"
+  }
+]

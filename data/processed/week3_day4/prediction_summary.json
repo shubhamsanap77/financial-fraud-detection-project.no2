@@ -1,0 +1,31 @@
+{
+  "execution_metadata": {
+    "input_file": "data\\processed\\paysim_feature_engineered.csv",
+    "model_file": "models\\logistic_regression_model.joblib",
+    "decision_threshold": 0.5,
+    "total_transactions_scored": 1000
+  },
+  "prediction_counts": {
+    "legitimate_transactions": 982,
+    "legitimate_percentage": 98.2,
+    "fraudulent_transactions": 18,
+    "fraud_percentage": 1.8
+  },
+  "probability_statistics": {
+    "mean_fraud_probability": 0.0213,
+    "median_fraud_probability": 0.0002,
+    "max_fraud_probability": 1.0,
+    "min_fraud_probability": 0.0
+  },
+  "risk_level_breakdown": {
+    "CRITICAL": 13,
+    "HIGH": 5,
+    "MEDIUM": 7,
+    "LOW": 975
+  },
+  "fraud_alerts_generated": 18,
+  "output_files": {
+    "prediction_results_csv": "data\\processed\\week3_day4\\prediction_results.csv",
+    "fraud_alerts_json": "data\\processed\\week3_day4\\fraud_alerts.json"
+  }
+}
