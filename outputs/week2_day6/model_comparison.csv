@@ -1,0 +1,4 @@
+model,accuracy,fraud_precision,fraud_recall,fraud_f1,roc_auc,average_precision,confusion_matrix
+Random Forest,1.0,1.0,1.0,1.0,1.0,1.0,"[[197, 0], [0, 3]]"
+XGBoost,1.0,1.0,1.0,1.0,1.0,1.0,"[[197, 0], [0, 3]]"
+Logistic Regression,0.99,0.6,1.0,0.75,1.0,1.0,"[[195, 2], [0, 3]]"
