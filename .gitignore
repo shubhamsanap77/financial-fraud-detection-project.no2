@@ -4,3 +4,12 @@ __pycache__/
 .venv/
 venv/
 env/
+pycache/
+*.py[cod]
+.env
+.venv/
+venv/
+# Generated ML model artifacts
+outputs/week2_day6/xgboost_model.json
+outputs/week2_day6/feature_columns.joblib
+outputs/week2_day6/xgboost_predictions.csv
