@@ -6,6 +6,10 @@ from pathlib import Path
 
 import pandas as pd
 
+try:
+    from prepare_ml_dataset import NUMERIC_CANDIDATES, prepare_dataset
+except ModuleNotFoundError:
+    from src.prepare_ml_dataset import NUMERIC_CANDIDATES, prepare_dataset
 from prepare_ml_dataset import NUMERIC_CANDIDATES, prepare_dataset
 
 

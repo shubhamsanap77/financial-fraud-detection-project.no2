@@ -1,0 +1,200 @@
+[
+  {
+    "transaction_id": "d206dd07-70bd-4967-9da3-cc56f9614d77",
+    "payment_type": "TRANSFER",
+    "amount": 440199.96,
+    "user_id": "C544343478",
+    "fraud_probability": 1.0,
+    "risk_level": "CRITICAL",
+    "confidence_score_pct": 100.0,
+    "alert_timestamp": "2026-10-02T17:00:00+00:00",
+    "reason": "Fraud probability (100.00%) exceeds threshold (50.00%) with CRITICAL risk level"
+  },
+  {
+    "transaction_id": "4db7c8b5-6b79-41cc-81a0-14ae1c13793c",
+    "payment_type": "TRANSFER",
+    "amount": 333121.18,
+    "user_id": "C546981755",
+    "fraud_probability": 1.0,
+    "risk_level": "CRITICAL",
+    "confidence_score_pct": 100.0,
+    "alert_timestamp": "2026-10-03T01:00:00+00:00",
+    "reason": "Fraud probability (100.00%) exceeds threshold (50.00%) with CRITICAL risk level"
+  },
+  {
+    "transaction_id": "8de808e3-66fe-4d1a-8585-e1b41cfa8ddd",
+    "payment_type": "TRANSFER",
+    "amount": 267436.36,
+    "user_id": "C595097385",
+    "fraud_probability": 0.9998,
+    "risk_level": "CRITICAL",
+    "confidence_score_pct": 99.96,
+    "alert_timestamp": "2026-10-03T01:00:00+00:00",
+    "reason": "Fraud probability (99.98%) exceeds threshold (50.00%) with CRITICAL risk level"
+  },
+  {
+    "transaction_id": "f46f627f-6812-47f7-9986-17d48b94ffc8",
+    "payment_type": "TRANSFER",
+    "amount": 816436.88,
+    "user_id": "C992085406",
+    "fraud_probability": 1.0,
+    "risk_level": "CRITICAL",
+    "confidence_score_pct": 100.0,
+    "alert_timestamp": "2026-10-04T01:00:00+00:00",
+    "reason": "Fraud probability (100.00%) exceeds threshold (50.00%) with CRITICAL risk level"
+  },
+  {
+    "transaction_id": "e42f82e5-c333-40fa-bf0b-a183c1ce46c1",
+    "payment_type": "CASH_OUT",
+    "amount": 556689.44,
+    "user_id": "C539382623",
+    "fraud_probability": 1.0,
+    "risk_level": "CRITICAL",
+    "confidence_score_pct": 100.0,
+    "alert_timestamp": "2026-10-02T15:00:00+00:00",
+    "reason": "Fraud probability (100.00%) exceeds threshold (50.00%) with CRITICAL risk level"
+  },
+  {
+    "transaction_id": "451c5097-a708-469c-91c1-df8224961819",
+    "payment_type": "TRANSFER",
+    "amount": 298139.2,
+    "user_id": "C723052768",
+    "fraud_probability": 0.9999,
+    "risk_level": "CRITICAL",
+    "confidence_score_pct": 99.98,
+    "alert_timestamp": "2026-10-01T04:00:00+00:00",
+    "reason": "Fraud probability (99.99%) exceeds threshold (50.00%) with CRITICAL risk level"
+  },
+  {
+    "transaction_id": "2f5c29c3-583e-4739-bff2-4690da94563a",
+    "payment_type": "TRANSFER",
+    "amount": 407446.98,
+    "user_id": "C709915949",
+    "fraud_probability": 1.0,
+    "risk_level": "CRITICAL",
+    "confidence_score_pct": 100.0,
+    "alert_timestamp": "2026-10-03T23:00:00+00:00",
+    "reason": "Fraud probability (100.00%) exceeds threshold (50.00%) with CRITICAL risk level"
+  },
+  {
+    "transaction_id": "0ae4e44b-4f1d-4dea-a94d-705450d102c5",
+    "payment_type": "TRANSFER",
+    "amount": 192179.23,
+    "user_id": "C364309534",
+    "fraud_probability": 0.6361,
+    "risk_level": "HIGH",
+    "confidence_score_pct": 27.23,
+    "alert_timestamp": "2026-10-03T06:00:00+00:00",
+    "reason": "Fraud probability (63.61%) exceeds threshold (50.00%) with HIGH risk level"
+  },
+  {
+    "transaction_id": "ae3df683-01cf-4942-8366-2d80567e1c6a",
+    "payment_type": "CASH_OUT",
+    "amount": 235175.12,
+    "user_id": "C580755996",
+    "fraud_probability": 0.9708,
+    "risk_level": "CRITICAL",
+    "confidence_score_pct": 94.17,
+    "alert_timestamp": "2026-10-02T19:00:00+00:00",
+    "reason": "Fraud probability (97.08%) exceeds threshold (50.00%) with CRITICAL risk level"
+  },
+  {
+    "transaction_id": "effd9c65-ef8a-4753-b377-9fe01fcceda7",
+    "payment_type": "CASH_OUT",
+    "amount": 390562.42,
+    "user_id": "C230528618",
+    "fraud_probability": 1.0,
+    "risk_level": "CRITICAL",
+    "confidence_score_pct": 100.0,
+    "alert_timestamp": "2026-10-03T03:00:00+00:00",
+    "reason": "Fraud probability (100.00%) exceeds threshold (50.00%) with CRITICAL risk level"
+  },
+  {
+    "transaction_id": "6136c3b6-7a43-43d8-8369-3352078b8a74",
+    "payment_type": "CASH_OUT",
+    "amount": 722147.51,
+    "user_id": "C473644589",
+    "fraud_probability": 1.0,
+    "risk_level": "CRITICAL",
+    "confidence_score_pct": 100.0,
+    "alert_timestamp": "2026-10-04T09:00:00+00:00",
+    "reason": "Fraud probability (100.00%) exceeds threshold (50.00%) with CRITICAL risk level"
+  },
+  {
+    "transaction_id": "4b2c2a5f-0888-4c18-b815-9b2686c56cca",
+    "payment_type": "CASH_OUT",
+    "amount": 143769.58,
+    "user_id": "C539450487",
+    "fraud_probability": 0.5644,
+    "risk_level": "HIGH",
+    "confidence_score_pct": 12.89,
+    "alert_timestamp": "2026-10-04T02:00:00+00:00",
+    "reason": "Fraud probability (56.44%) exceeds threshold (50.00%) with HIGH risk level"
+  },
+  {
+    "transaction_id": "62fd09db-ec87-4cd6-a14e-40e1b8a6a2e6",
+    "payment_type": "TRANSFER",
+    "amount": 235010.16,
+    "user_id": "C696331764",
+    "fraud_probability": 0.5079,
+    "risk_level": "HIGH",
+    "confidence_score_pct": 1.58,
+    "alert_timestamp": "2026-10-03T13:00:00+00:00",
+    "reason": "Fraud probability (50.79%) exceeds threshold (50.00%) with HIGH risk level"
+  },
+  {
+    "transaction_id": "01e398b5-d709-4cf9-acd8-a158682d718c",
+    "payment_type": "TRANSFER",
+    "amount": 215541.06,
+    "user_id": "C502619507",
+    "fraud_probability": 0.5877,
+    "risk_level": "HIGH",
+    "confidence_score_pct": 17.53,
+    "alert_timestamp": "2026-10-04T18:00:00+00:00",
+    "reason": "Fraud probability (58.77%) exceeds threshold (50.00%) with HIGH risk level"
+  },
+  {
+    "transaction_id": "d14ea442-8483-4694-a819-fa5efffc9c16",
+    "payment_type": "TRANSFER",
+    "amount": 270343.75,
+    "user_id": "C498352238",
+    "fraud_probability": 0.9999,
+    "risk_level": "CRITICAL",
+    "confidence_score_pct": 99.98,
+    "alert_timestamp": "2026-10-04T00:00:00+00:00",
+    "reason": "Fraud probability (99.99%) exceeds threshold (50.00%) with CRITICAL risk level"
+  },
+  {
+    "transaction_id": "48990d83-f8d0-4f99-8f02-258944d287ef",
+    "payment_type": "TRANSFER",
+    "amount": 235624.04,
+    "user_id": "C842366270",
+    "fraud_probability": 0.8432,
+    "risk_level": "HIGH",
+    "confidence_score_pct": 68.63,
+    "alert_timestamp": "2026-10-02T19:00:00+00:00",
+    "reason": "Fraud probability (84.32%) exceeds threshold (50.00%) with HIGH risk level"
+  },
+  {
+    "transaction_id": "ff8e615b-87c4-444e-ab91-95534f0613ec",
+    "payment_type": "CASH_OUT",
+    "amount": 204675.73,
+    "user_id": "C613325161",
+    "fraud_probability": 0.993,
+    "risk_level": "CRITICAL",
+    "confidence_score_pct": 98.59,
+    "alert_timestamp": "2026-10-04T00:00:00+00:00",
+    "reason": "Fraud probability (99.30%) exceeds threshold (50.00%) with CRITICAL risk level"
+  },
+  {
+    "transaction_id": "ee533ad2-32ed-47b9-961a-2e42a4f19b51",
+    "payment_type": "TRANSFER",
+    "amount": 163650.86,
+    "user_id": "C255984764",
+    "fraud_probability": 0.9577,
+    "risk_level": "CRITICAL",
+    "confidence_score_pct": 91.53,
+    "alert_timestamp": "2026-10-03T01:00:00+00:00",
+    "reason": "Fraud probability (95.77%) exceeds threshold (50.00%) with CRITICAL risk level"
+  }
+]
