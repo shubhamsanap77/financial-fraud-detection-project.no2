@@ -1,0 +1,76 @@
+{
+  "logistic_regression": {
+    "model_name": "Logistic Regression",
+    "confusion_matrix": {
+      "true_negatives": 195,
+      "false_positives": 2,
+      "false_negatives": 0,
+      "true_positives": 3,
+      "matrix_array": [
+        [
+          195,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ]
+    },
+    "fraud_class_metrics": {
+      "precision": 0.6,
+      "recall": 1.0,
+      "f1_score": 0.75,
+      "support": 3
+    },
+    "aggregate_metrics": {
+      "accuracy": 0.99,
+      "macro_f1": 0.8724,
+      "weighted_f1": 0.9912,
+      "roc_auc": 1.0,
+      "average_precision_pr_auc": 1.0
+    },
+    "rates": {
+      "false_positive_rate": 0.0102,
+      "false_negative_rate": 0.0,
+      "specificity": 0.9898
+    }
+  },
+  "random_forest": {
+    "model_name": "Random Forest",
+    "confusion_matrix": {
+      "true_negatives": 197,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "true_positives": 3,
+      "matrix_array": [
+        [
+          197,
+          0
+        ],
+        [
+          0,
+          3
+        ]
+      ]
+    },
+    "fraud_class_metrics": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 3
+    },
+    "aggregate_metrics": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "weighted_f1": 1.0,
+      "roc_auc": 1.0,
+      "average_precision_pr_auc": 1.0
+    },
+    "rates": {
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0,
+      "specificity": 1.0
+    }
+  }
+}
